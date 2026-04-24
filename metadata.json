@@ -1,0 +1,7 @@
+{
+  "name": "Fuel Check Soyo",
+  "description": "Uma plataforma para consulta e atualização em tempo real da disponibilidade de combustível no município do Soyo, Angola.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

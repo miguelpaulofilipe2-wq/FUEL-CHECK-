@@ -94,15 +94,15 @@ export const RegistrationForm: React.FC<Props> = ({ onRegister, onCancel }) => {
         <div 
           onClick={() => document.getElementById(`file-${id}`)?.click()}
           className={`relative border-2 border-dashed rounded-2xl p-3 transition-all flex flex-col items-center justify-center min-h-[85px] cursor-pointer ${
-            file ? 'border-green-400 bg-green-50' : 
-            hasError ? 'border-red-400 bg-red-50' : 'border-gray-200 bg-gray-50'
+            file ? 'border-green-400 bg-green-950/20' : 
+            hasError ? 'border-red-400 bg-red-950/20' : 'border-white/5 bg-white/5'
           }`}
         >
           <input type="file" id={`file-${id}`} className="hidden" onChange={(e) => onChange(e.target.files?.[0] || null)} />
-          <svg className={`w-5 h-5 mb-1 ${file ? 'text-green-500' : hasError ? 'text-red-400' : 'text-gray-300'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className={`w-5 h-5 mb-1 ${file ? 'text-green-500' : hasError ? 'text-red-400' : 'text-gray-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={file ? "M5 13l4 4L19 7" : "M12 4v16m8-8H4"} />
           </svg>
-          <span className={`text-[9px] text-center font-bold truncate max-w-full px-1 ${file ? 'text-green-700' : hasError ? 'text-red-500' : 'text-gray-400'}`}>
+          <span className={`text-[9px] text-center font-bold truncate max-w-full px-1 ${file ? 'text-green-400' : hasError ? 'text-red-400' : 'text-gray-500'}`}>
             {file ? file.name : 'Subir Foto'}
           </span>
         </div>
@@ -111,9 +111,9 @@ export const RegistrationForm: React.FC<Props> = ({ onRegister, onCancel }) => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-white p-6 sm:p-8 rounded-[32px] shadow-2xl border border-gray-100">
+    <div className="max-w-2xl mx-auto bg-[#121212] p-6 sm:p-8 rounded-[32px] shadow-2xl border border-white/5">
       <div className="mb-6 text-center">
-        <h2 className="text-2xl font-black text-[#0c3a4a]">Registo de Parceiro</h2>
+        <h2 className="text-2xl font-black text-white">Registo de Parceiro</h2>
         <p className="text-gray-500 text-xs mt-1 leading-relaxed">
           Preencha os dados. Após o envio, abriremos o seu WhatsApp para concluir o contacto com o administrador.
         </p>
@@ -121,26 +121,31 @@ export const RegistrationForm: React.FC<Props> = ({ onRegister, onCancel }) => {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <input required placeholder="Nome Completo" className="w-full px-4 py-3 rounded-xl border-none bg-gray-100 focus:ring-2 focus:ring-[#08677a] outline-none text-sm" value={formData.fullName} onChange={e => setFormData({...formData, fullName: e.target.value})}/>
-          <input required placeholder="Nome do Posto" className="w-full px-4 py-3 rounded-xl border-none bg-gray-100 focus:ring-2 focus:ring-[#08677a] outline-none text-sm" value={formData.companyName} onChange={e => setFormData({...formData, companyName: e.target.value})}/>
+          <input required placeholder="Nome Completo" className="w-full px-4 py-3 rounded-xl border-none bg-white/5 text-white focus:ring-2 focus:ring-[#08677a] outline-none text-sm placeholder:text-gray-600" value={formData.fullName} onChange={e => setFormData({...formData, fullName: e.target.value})}/>
+          <input required placeholder="Nome do Posto" className="w-full px-4 py-3 rounded-xl border-none bg-white/5 text-white focus:ring-2 focus:ring-[#08677a] outline-none text-sm placeholder:text-gray-600" value={formData.companyName} onChange={e => setFormData({...formData, companyName: e.target.value})}/>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <input required type="tel" placeholder="Nº de Telefone" className="w-full px-4 py-3 rounded-xl border-none bg-gray-100 focus:ring-2 focus:ring-[#08677a] outline-none text-sm" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})}/>
-          <input required type="email" placeholder="E-mail do Proprietário" className="w-full px-4 py-3 rounded-xl border-none bg-gray-100 focus:ring-2 focus:ring-[#08677a] outline-none text-sm" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})}/>
+          <input required type="tel" placeholder="Nº de Telefone" className="w-full px-4 py-3 rounded-xl border-none bg-white/5 text-white focus:ring-2 focus:ring-[#08677a] outline-none text-sm placeholder:text-gray-600" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})}/>
+          <input required type="email" placeholder="E-mail do Proprietário" className="w-full px-4 py-3 rounded-xl border-none bg-white/5 text-white focus:ring-2 focus:ring-[#08677a] outline-none text-sm placeholder:text-gray-600" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})}/>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <input required placeholder="NIF" className="w-full px-4 py-3 rounded-xl border-none bg-gray-100 focus:ring-2 focus:ring-[#08677a] outline-none text-sm uppercase" value={formData.nif} onChange={e => setFormData({...formData, nif: e.target.value})}/>
-          <input required placeholder="BI" className="w-full px-4 py-3 rounded-xl border-none bg-gray-100 focus:ring-2 focus:ring-[#08677a] outline-none text-sm uppercase" value={formData.biNumber} onChange={e => setFormData({...formData, biNumber: e.target.value})}/>
+          <input required placeholder="NIF" className="w-full px-4 py-3 rounded-xl border-none bg-white/5 text-white focus:ring-2 focus:ring-[#08677a] outline-none text-sm uppercase placeholder:text-gray-600" value={formData.nif} onChange={e => setFormData({...formData, nif: e.target.value})}/>
+          <input required placeholder="BI" className="w-full px-4 py-3 rounded-xl border-none bg-white/5 text-white focus:ring-2 focus:ring-[#08677a] outline-none text-sm uppercase placeholder:text-gray-600" value={formData.biNumber} onChange={e => setFormData({...formData, biNumber: e.target.value})}/>
         </div>
 
-        <select className="w-full px-4 py-3 rounded-xl border-none bg-gray-100 outline-none text-sm" value={formData.neighborhood} onChange={e => setFormData({...formData, neighborhood: e.target.value})}>
-          {SOYO_NEIGHBORHOODS.map(n => <option key={n} value={n}>{n}</option>)}
-        </select>
+        <div className="relative">
+          <select className="w-full px-4 py-3 rounded-xl border-none bg-white/5 text-white outline-none text-sm appearance-none" value={formData.neighborhood} onChange={e => setFormData({...formData, neighborhood: e.target.value})}>
+            {SOYO_NEIGHBORHOODS.map(n => <option key={n} value={n} className="bg-[#121212]">{n}</option>)}
+          </select>
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"/></svg>
+          </div>
+        </div>
 
-        <div className="bg-gray-50 p-4 rounded-2xl">
-          <h3 className="text-[10px] font-black text-gray-400 mb-3 uppercase tracking-widest text-center">Documentos Obrigatórios</h3>
+        <div className="bg-white/[0.02] p-4 rounded-2xl border border-white/5">
+          <h3 className="text-[10px] font-black text-gray-500 mb-3 uppercase tracking-widest text-center">Documentos Obrigatórios</h3>
           <div className="grid grid-cols-3 gap-3">
             <FileInput label="BI" id="bi" file={files.bi} onChange={(f) => setFiles({...files, bi: f})} />
             <FileInput label="NIF" id="nif" file={files.nif} onChange={(f) => setFiles({...files, nif: f})} />
@@ -151,11 +156,11 @@ export const RegistrationForm: React.FC<Props> = ({ onRegister, onCancel }) => {
         <button 
           type="submit" 
           disabled={isSubmitting}
-          className="w-full py-4 rounded-2xl bg-[#08677a] text-white font-black hover:bg-[#0c3a4a] shadow-xl transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+          className="w-full py-4 rounded-2xl bg-[#08677a] text-white font-black hover:bg-[#0c3a4a] shadow-xl transition-all disabled:opacity-50 flex items-center justify-center gap-2 mt-4"
         >
           {isSubmitting ? <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div> : 'ENVIAR PARA O MIGUEL'}
         </button>
-        <button type="button" onClick={onCancel} className="w-full py-2 text-gray-400 font-bold text-xs uppercase tracking-widest">Cancelar</button>
+        <button type="button" onClick={onCancel} className="w-full py-2 text-gray-500 font-bold text-xs uppercase tracking-widest hover:text-gray-300 transition-colors">Cancelar</button>
       </form>
     </div>
   );

@@ -137,12 +137,12 @@ const App: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] pb-20">
-      <nav className="sticky top-0 z-50 bg-[#121212]/90 backdrop-blur-md border-b border-white/5 px-4 py-3 flex items-center justify-between shadow-sm">
+    <div className="min-h-screen bg-[#f8fafc] pb-20">
+      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 px-4 py-3 flex items-center justify-between shadow-sm">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => setCurrentView('user')}>
           <Logo className="w-10 h-10" />
-          <div className="hidden sm:block text-left">
-            <h1 className="text-xl font-black text-white leading-tight">FUEL CHECK</h1>
+          <div className="hidden sm:block">
+            <h1 className="text-xl font-black text-[#0c3a4a] leading-tight">FUEL CHECK</h1>
             <p className="text-[10px] font-bold text-[#22c55e] tracking-widest uppercase -mt-1">Soyo Digital</p>
           </div>
         </div>
@@ -150,8 +150,8 @@ const App: React.FC = () => {
         <div className="flex items-center gap-2">
           {loggedInOwner ? (
             <div className="flex items-center gap-3">
-               <span className="text-[10px] font-bold text-[#22d3ee] uppercase tracking-widest bg-cyan-950/30 px-3 py-1 rounded-full border border-cyan-800/50">Painel Ativo</span>
-               <button onClick={() => setLoggedInOwner(null)} className="text-red-400 hover:text-red-600 transition-colors">
+               <span className="text-[10px] font-bold text-[#08677a] uppercase tracking-widest bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Painel Ativo</span>
+               <button onClick={() => setLoggedInOwner(null)} className="text-red-400 hover:text-red-600">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                </button>
             </div>
@@ -159,23 +159,18 @@ const App: React.FC = () => {
             <div className="flex gap-2">
               <button 
                 onClick={() => setCurrentView('login')}
-                className="text-gray-300 font-bold text-xs px-4 py-2 hover:bg-white/5 rounded-xl transition-all"
+                className="text-[#08677a] font-black text-xs px-4 py-2 hover:bg-teal-50 rounded-xl transition-all"
               >
                 ENTRAR
               </button>
               <button 
                 onClick={() => setCurrentView('register')}
-                className="bg-[#08677a] text-white px-5 py-2 rounded-xl text-xs font-black shadow-lg shadow-teal-900/40 active:scale-95 transition-all"
+                className="bg-[#08677a] text-white px-5 py-2 rounded-xl text-xs font-black shadow-lg shadow-teal-100 active:scale-95 transition-all"
               >
                 REGISTAR
               </button>
             </div>
           )}
-          <button className="p-2 text-gray-400 hover:text-white transition-colors" onClick={() => window.location.reload()}>
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-            </svg>
-          </button>
         </div>
       </nav>
 
@@ -189,12 +184,12 @@ const App: React.FC = () => {
         )}
       </main>
 
-      <footer className="fixed bottom-6 left-0 right-0 px-4 md:hidden pointer-events-none z-50">
+      <footer className="fixed bottom-0 left-0 right-0 p-4 sm:hidden pointer-events-none z-50">
         <div className="container mx-auto pointer-events-auto">
           {currentView === 'user' && !loggedInOwner && (
              <button 
                 onClick={() => setCurrentView('register')}
-                className="w-full bg-[#121212] border border-white/10 text-white py-4 rounded-2xl font-black shadow-2xl flex items-center justify-center gap-2 active:scale-95 transition-transform"
+                className="w-full bg-[#0c3a4a] text-white py-4 rounded-2xl font-black shadow-2xl flex items-center justify-center gap-2"
              >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 4v16m8-8H4" />
